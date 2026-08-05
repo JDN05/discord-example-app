@@ -51,7 +51,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
             {
               type: MessageComponentTypes.TEXT_DISPLAY,
               // Fetches a random emoji to send from a helper function
-              content: `hello world ${getRandomEmoji()}`
+              content: `hello <@${userId}>`
             }
           ]
         },
@@ -67,7 +67,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
           components: [
             {
               type: MessageComponentTypes.TEXT_DISPLAY,
-              content: (Math.random() < 0.99) ? 'okay you win. do you feel good about yourself' : 'you wish'
+              content: (Math.random() > 0.99) ? 'okay you win. do you feel good about yourself' : 'you wish'
             }
           ]
         },
