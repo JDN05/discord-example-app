@@ -43,7 +43,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
     // "test" command
     if (name === 'test') {
       // Send a message into the channel where command was triggered from
-      /*return res.send({
+      return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
           flags: InteractionResponseFlags.IS_COMPONENTS_V2,
@@ -55,21 +55,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
             }
           ]
         },
-      });*/
-
-      return res.send({
-        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-        data: {
-          flags: InteractionResponseFlags.IS_COMPONENTS_V2,
-          components: [
-            {
-              type: MessageComponentTypes.TEXT_DISPLAY,
-              content: Math.random() > 0.99 ? 'okay you win. do you feel good about yourself' : 'you wish'
-            }
-          ]
-        },
       });
-
     }
 
     // opt-into-testing
@@ -77,7 +63,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          flags: InteractionResponseFlags.IS_COMMPOMENTS_V2,
+          flags: InteractionResponseFlags.IS_COMPOMENTS_V2,
           components: [
             {
               type: MessageComponentTypes.TEXT_DISPLAY,
