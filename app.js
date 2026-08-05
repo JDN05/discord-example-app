@@ -58,6 +58,22 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
       });
     }
 
+    // opt-into-testing
+    if (name === 'gamble') {
+      return res.send({
+        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        data: {
+          flags: InteractionResponseFlags.IS_COMMPOMENTS_V2,
+          components: [
+            {
+              type: MessageComponentTypes.TEXT_DISPLAY,
+              content: (Math.random() > 0.99) ? 'okay you win. do you feel good about yourself' : 'you wish'
+            }
+          ]
+        },
+      });
+    }
+
     console.error(`unknown command: ${name}`);
     return res.status(400).json({ error: 'unknown command' });
   }

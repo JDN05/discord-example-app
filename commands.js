@@ -43,7 +43,29 @@ const CHALLENGE_COMMAND = {
   integration_types: [0, 1],
   contexts: [0, 2],
 };
+/* TODO
+const HABIT_COMMAND = {
+  name: 'newhabit',
+  description: 'track a new habit',
+  options: [
+    {
+      type: 3,
+      name: 'habit title',
+      description: 'what\'s the new habit kiddo',
+      required: true,
+    },
+  ]
+}*/
 
-const ALL_COMMANDS = [TEST_COMMAND, CHALLENGE_COMMAND];
+// lottery because
+const GAMBLE_COMMAND = {
+  name: 'gamble',
+  description: 'good luck.',
+  type: 1,
+  integration_types: [0, 1],
+  contexts: [0, 1, 2],
+}
+
+const ALL_COMMANDS = [GAMBLE_COMMAND];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);
