@@ -60,11 +60,11 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
       return res.send({
         type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
         data: {
-          flags: InteractionResponseFlags.IS_COMMPOMENTS_V2,
+          flags: InteractionResponseFlags.IS_COMPONENTS_V2,
           components: [
             {
               type: MessageComponentTypes.TEXT_DISPLAY,
-              content: (Math.random() > 0.99 ? 'okay you win. do you feel good about yourself' : 'you wish')
+              content: Math.random() > 0.99 ? 'okay you win. do you feel good about yourself' : 'you wish'
             }
           ]
         },
