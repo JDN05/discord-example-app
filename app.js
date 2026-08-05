@@ -67,7 +67,7 @@ app.post('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), async fun
           components: [
             {
               type: MessageComponentTypes.TEXT_DISPLAY,
-              content: (Math.random() > 0.99) ? 'okay you win. do you feel good about yourself' : 'you wish'
+              content: (Math.random() < 0.99) ? 'okay you win. do you feel good about yourself' : 'you wish'
             }
           ]
         },
